@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Reader</title>
+</head>
+<body>
+    <input type="file" id="fileInput">
+    <button onclick="readFile()">Read File</button>
+    <div id="output"></div>
+
+    <script>
+        function readFile() {
+            const fileInput = document.getElementById('fileInput');
+            const output = document.getElementById('output');
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                output.innerText = event.target.result; // Displaying content
+            };
+
+            // Read file as text
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+</html>

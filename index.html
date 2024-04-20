@@ -1,0 +1,32 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Go Code</title>
+</head>
+<body>
+    <textarea id="codeBox" rows="10" cols="50" placeholder="Type your Go code here..."></textarea><br>
+    <button onclick="saveCode()">Save Code</button>
+
+    <script>
+        function saveCode() {
+            var code = document.getElementById("codeBox").value;
+            fetch('/save-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ code: code }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
