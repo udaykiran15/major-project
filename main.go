@@ -17,7 +17,7 @@ import (
 )
 
 func main() {
-	apiKey := "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"
+	apiKey := "API-Key"
 	if apiKey == "" {
 		fmt.Println("Please set OPENAI_API_KEY environment variable")
 		os.Exit(1)
